@@ -1,0 +1,71 @@
+{
+ "weeks": 53,
+ "wettest": [
+  22,
+  220.9
+ ],
+ "driest": [
+  16,
+  2.0
+ ],
+ "max": [
+  60.0,
+  17
+ ],
+ "min": [
+  0.0,
+  1
+ ],
+ "dry_days": 197,
+ "rows": [
+  {
+   "n": 365,
+   "naive_adds": 2513,
+   "running_adds": 365,
+   "running_subs": 358,
+   "t_naive": 0.00014,
+   "t_running": 4e-05,
+   "t_deque": 7e-05
+  },
+  {
+   "n": 36500,
+   "naive_adds": 255458,
+   "running_adds": 36500,
+   "running_subs": 36493,
+   "t_naive": 0.01168,
+   "t_running": 0.00309,
+   "t_deque": 0.00531
+  },
+  {
+   "n": 365000,
+   "naive_adds": 2554958,
+   "running_adds": 365000,
+   "running_subs": 364993,
+   "t_naive": 0.11655,
+   "t_running": 0.03446,
+   "t_deque": 0.0681
+  }
+ ],
+ "ops": [
+  {
+   "n": 365,
+   "append_pop_us": 0.116,
+   "insert0_pop0_us": 0.41,
+   "sort_ms": 0.019
+  },
+  {
+   "n": 36500,
+   "append_pop_us": 0.128,
+   "insert0_pop0_us": 25.471,
+   "sort_ms": 4.266
+  },
+  {
+   "n": 365000,
+   "append_pop_us": 1.311,
+   "insert0_pop0_us": 247.915,
+   "sort_ms": 49.263
+  }
+ ],
+ "mem_list_kb": 2852,
+ "mem_dict_kb": 30453
+}

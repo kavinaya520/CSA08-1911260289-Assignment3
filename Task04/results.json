@@ -1,0 +1,78 @@
+{
+ "member": [
+  {
+   "n": 10000,
+   "list_us": 53.482,
+   "set_us": 0.0281,
+   "ratio": 1906
+  },
+  {
+   "n": 100000,
+   "list_us": 569.954,
+   "set_us": 0.0269,
+   "ratio": 21204
+  },
+  {
+   "n": 1000000,
+   "list_us": 8218.006,
+   "set_us": 0.0286,
+   "ratio": 287001
+  }
+ ],
+ "common": [
+  {
+   "n": 500,
+   "nested_cmp": 186956,
+   "nested_s": 0.0053,
+   "sorted_cmp": 743,
+   "sorted_s": 0.0002,
+   "set_s": 0.0001,
+   "common": 256
+  },
+  {
+   "n": 1000,
+   "nested_cmp": 765408,
+   "nested_s": 0.0192,
+   "sorted_cmp": 1511,
+   "sorted_s": 0.0004,
+   "set_s": 0.0001,
+   "common": 484
+  },
+  {
+   "n": 2000,
+   "nested_cmp": 3041782,
+   "nested_s": 0.085,
+   "sorted_cmp": 3016,
+   "sorted_s": 0.0009,
+   "set_s": 0.0004,
+   "common": 983
+  },
+  {
+   "n": 4000,
+   "nested_cmp": 12035082,
+   "nested_s": 0.3029,
+   "sorted_cmp": 5996,
+   "sorted_s": 0.0018,
+   "set_s": 0.0006,
+   "common": 2003
+  },
+  {
+   "n": 100000,
+   "nested_cmp": null,
+   "nested_s": null,
+   "sorted_cmp": 149888,
+   "sorted_s": 0.0643,
+   "set_s": 0.0246,
+   "common": 50112
+  },
+  {
+   "n": 1000000,
+   "nested_cmp": null,
+   "nested_s": null,
+   "sorted_cmp": 1500926,
+   "sorted_s": 1.0789,
+   "set_s": 0.4371,
+   "common": 499073
+  }
+ ]
+}

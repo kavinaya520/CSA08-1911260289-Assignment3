@@ -1,0 +1,34 @@
+{
+ "rows": [
+  {
+   "n": 10000,
+   "loop": 0.0013,
+   "comp": 0.0012,
+   "map": 0.0015,
+   "same": true,
+   "valid": 9575
+  },
+  {
+   "n": 100000,
+   "loop": 0.0128,
+   "comp": 0.0112,
+   "map": 0.0178,
+   "same": true,
+   "valid": 95994
+  },
+  {
+   "n": 1000000,
+   "loop": 0.1644,
+   "comp": 0.1426,
+   "map": 0.1729,
+   "same": true,
+   "valid": 959795
+  }
+ ],
+ "list_bytes": 8448728,
+ "gen_bytes": 208,
+ "t_list_sum": 0.0621,
+ "t_gen_sum": 0.0605,
+ "peak_list_kb": 8251,
+ "peak_gen_kb": 0.4
+}

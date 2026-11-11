@@ -1,0 +1,34 @@
+{
+ "rows": [
+  {
+   "n": 1000,
+   "words": 6358,
+   "distinct": 150,
+   "dict": 0.0055,
+   "setdefault": 0.006,
+   "list_count": 0.0209,
+   "counter": 0.0056,
+   "nd": 953700
+  },
+  {
+   "n": 10000,
+   "words": 63662,
+   "distinct": 150,
+   "dict": 0.0426,
+   "setdefault": 0.0452,
+   "list_count": 0.157,
+   "counter": 0.0386,
+   "nd": 9549300
+  },
+  {
+   "n": 100000,
+   "words": 638299,
+   "distinct": 150,
+   "dict": 0.3809,
+   "setdefault": 0.3754,
+   "list_count": 1.4423,
+   "counter": 0.3959,
+   "nd": 95744850
+  }
+ ]
+}

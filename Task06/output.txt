@@ -1,0 +1,26 @@
+Nested structure: timetable[train number] -> {name, stops (list of tuples), days (set)}
+  departure time of the third station of train 12601: timetable[12601]["stops"][2][2] = 10:45
+
+Timetable (sample data)
+Train  Name                             Days                   Stops
+12601  Chennai - Coimbatore Express     Mon,Wed,Fri,Sun        Chennai Central(06:10) > Katpadi(07:57) > Salem(10:45) > Coimbatore(13:30)
+12602  Coimbatore - Chennai Express     Tue,Thu,Sat            Coimbatore(15:20) > Salem(18:10) > Katpadi(20:52) > Chennai Central(22:40)
+12635  Chennai - Madurai Superfast      Daily                  Chennai Central(21:30) > Trichy(03:15) > Madurai(05:45)
+16101  Chennai - Salem Passenger        Mon,Tue,Wed,Thu,Fri    Chennai Central(05:30) > Katpadi(08:25) > Salem(12:15)
+22651  Salem - Madurai Link             Mon,Fri,Sat            Salem(11:00) > Karur(13:12) > Trichy(14:40) > Madurai(17:30)
+
+Query: trains stopping at Salem on Mon, sorted by time (departure; a train that ends here shows its arrival)
+  10:45  12601  Chennai - Coimbatore Express
+  11:00  22651  Salem - Madurai Link
+  12:15  16101  Chennai - Salem Passenger
+  stops examined without index: 12 | trains examined with index: 4
+
+Tests
+  unknown station      : [] []
+  train not running day: Salem on Sun -> [('10:45', 12601, 'Chennai - Coimbatore Express')] (16101 and 22651 do not run on Sunday)
+
+Queries on generated timetables (200 stations, 10 stops per train, 300 queries)
+ trains | total stops | no-index examined/q | index examined/q | no-index ms/q | index ms/q | flat ms/q | index KB
+    100 |       1,000 |                 977 |              5.2 |        0.0551 |    0.00283 |    0.0222 |       28
+  1,000 |      10,000 |               9,776 |             50.0 |        0.4118 |    0.02783 |    0.2241 |      100
+ 10,000 |     100,000 |              97,753 |            499.7 |        4.1728 |    0.48164 |    2.5408 |      846

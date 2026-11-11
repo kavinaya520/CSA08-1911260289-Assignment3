@@ -1,0 +1,34 @@
+Bug and correction with is and id()
+  bad  row ids : [45248, 45248, 45248] -> one object: True
+  good row ids : [94016, 82496, 92160] -> separate objects: True
+
+Aliasing, shallow copy and deep copy of a = [1, [2, 3]]
+  alias b = a       after a[0] = 100 and a[1].append(99): copy is [100, [2, 3, 99]]
+  copy.copy(a)      after a[0] = 100 and a[1].append(99): copy is [1, [2, 3, 99]]
+  a[:]              after a[0] = 100 and a[1].append(99): copy is [1, [2, 3, 99]]
+  copy.deepcopy(a)  after a[0] = 100 and a[1].append(99): copy is [1, [2, 3]]
+  shallow copies copy the outer list only, so the inner list is still shared; deepcopy copies everything
+
+A function that changes a list argument changes the caller's list
+  after board(grid) and rebind(grid): [1, 0, 0, 0] (board changed it, rebind did not)
+
+Unpacking tuples in a for loop
+  Chennai Central: latitude 13.0827, longitude 80.2707
+  T. Nagar: latitude 13.0418, longitude 80.2341
+
+A list as a dictionary key
+  TypeError: unhashable type: 'list'
+
+A list stored inside a tuple
+  t[0].append(9) works: ([1, 2, 9], 3)
+  t[0] += [5] -> TypeError: 'tuple' object does not support item assignment
+  but the list inside was still extended: ([1, 2, 9, 5], 3)
+
+Memory and time: list vs tuple of 1,000,000 values
+  sys.getsizeof(list) = 8,000,056 bytes | sys.getsizeof(tuple) = 8,000,040 bytes
+  create list 0.0216 s | create tuple 0.0204 s
+  200,000 index reads: list 0.0104 s | tuple 0.0110 s
+
+Alternative: dictionary keyed by (row, col) holding only zones with passengers
+  1000 x 1000 grid: list of lists 7,875 KB | dict with 1000 non-empty zones 36.1 KB
+  200,000 reads: list of lists 0.0065 s | dict 0.0065 s

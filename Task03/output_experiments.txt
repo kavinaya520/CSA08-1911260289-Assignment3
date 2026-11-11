@@ -1,0 +1,25 @@
+Small test (from the question)
+  [('seeds', 3), ('price', 2), ('received', 2)]
+  price and received both occur 2 times; the tie is broken alphabetically ('price' < 'received').
+
+Edge cases: empty text, upper/lower case, punctuation
+  empty text      : {} {}
+  upper/lower case: {'seeds': 3}
+  punctuation     : {'seeds': 2, 'late': 1, 'price': 1}
+
+Complaints per district (20 sample complaints): {'Erode': 6, 'Salem': 4, 'Thanjavur': 6, 'Vellore': 4}
+Complaints per crop                           : {'cotton': 5, 'groundnut': 8, 'paddy': 4, 'sugarcane': 3}
+First complaint for paddy: w11 w30 w35 w12 w113 w71 and leaves
+
+Dictionary views: keys(), values(), items() are live views (Python 3.7+ keeps insertion order)
+  keys view after adding a key : ['seeds', 'price', 'urea'] | items: [('seeds', 3), ('price', 2), ('urea', 1)]
+
+Timings (seconds) for 1,000 / 10,000 / 100,000 complaints, 150 distinct words
+complaints |  words n | distinct d | dict get | setdefault | list.count |  Counter |          n*d
+     1,000 |    6,358 |        150 |   0.0055 |     0.0060 |     0.0209 |   0.0056 |      953,700
+    10,000 |   63,662 |        150 |   0.0426 |     0.0452 |     0.1570 |   0.0386 |    9,549,300
+   100,000 |  638,299 |        150 |   0.3809 |     0.3754 |     1.4423 |   0.3959 |   95,744,850
+
+Tie-break check with the words ['b', 'a', 'b', 'a', 'c']
+  Counter.most_common(2): [('b', 2), ('a', 2)] <- ties stay in first-appearance order
+  top(freq, 2) with key=(-count, word): [('a', 2), ('b', 2)] <- alphabetical for ties

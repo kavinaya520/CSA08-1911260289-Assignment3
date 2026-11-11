@@ -1,0 +1,50 @@
+{
+ "rows": [
+  {
+   "n": 1000,
+   "dict_s": 0.0019,
+   "lookups": 979,
+   "pair_s": 0.04,
+   "pair_estimated": false,
+   "comparisons": 499500,
+   "records": 720
+  },
+  {
+   "n": 100000,
+   "dict_s": 0.2404,
+   "lookups": 97455,
+   "pair_s": 351.27,
+   "pair_estimated": true,
+   "comparisons": 4999950000,
+   "records": 72483
+  }
+ ],
+ "growth": [
+  {
+   "n": 500,
+   "pair_s": 0.0081,
+   "dict_s": 0.00087,
+   "comparisons": 124750
+  },
+  {
+   "n": 1000,
+   "pair_s": 0.0354,
+   "dict_s": 0.0018,
+   "comparisons": 499500
+  },
+  {
+   "n": 2000,
+   "pair_s": 0.1491,
+   "dict_s": 0.00345,
+   "comparisons": 1999000
+  },
+  {
+   "n": 4000,
+   "pair_s": 0.6195,
+   "dict_s": 0.00737,
+   "comparisons": 7998000
+  }
+ ],
+ "per_pair_us": 0.0703,
+ "est_100k_min": 6.5
+}

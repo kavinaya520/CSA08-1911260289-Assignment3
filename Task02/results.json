@@ -1,0 +1,30 @@
+{
+ "size_list": 8000056,
+ "size_tuple": 8000040,
+ "make_list": 0.0216,
+ "make_tuple": 0.0204,
+ "idx_list": 0.0104,
+ "idx_tuple": 0.011,
+ "grid_kb": 7875,
+ "dict_kb": 36.1,
+ "read_grid": 0.0065,
+ "read_dict": 0.0065,
+ "copies": {
+  "alias b = a": [
+   "100",
+   "[2, 3, 99]"
+  ],
+  "copy.copy(a)": [
+   "1",
+   "[2, 3, 99]"
+  ],
+  "a[:]": [
+   "1",
+   "[2, 3, 99]"
+  ],
+  "copy.deepcopy(a)": [
+   "1",
+   "[2, 3]"
+  ]
+ }
+}

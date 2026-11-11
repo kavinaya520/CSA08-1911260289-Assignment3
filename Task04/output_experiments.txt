@@ -1,0 +1,31 @@
+Verification of the small case by hand
+  AI = {001, 004, 007, 009}, OT = {002, 004, 009, 010}
+  by hand: both = {004, 009}; exactly one = {001, 007, 002, 010}; neither = {003, 005, 006, 008}
+  program agrees with the hand result: True
+
+Duplicates are removed automatically, reports are sorted
+  list with duplicates : ['192311001', '192311004', '192311001', '192311004', '192311007'] -> 5 entries
+  set(registrations)   : ['192311001', '192311004', '192311007'] -> 3 students
+
+Tests: empty and identical electives
+  empty & empty: set() | AI & empty: set() | AI | empty == AI: True | AI - empty == AI: True
+  identical: AI & AI == AI: True | AI ^ AI: set() | AI - AI: set()
+
+Sets cannot contain lists but can contain tuples
+  {(1, 2), (3, 4)} works: {(1, 2), (3, 4)}
+  {[1, 2]} -> TypeError: unhashable type: 'list'
+
+Membership test: x in list vs x in set (x not present = worst case for the list)
+         n | x in list (us) | x in set (us) |     ratio
+    10,000 |         53.482 |        0.0281 |     1,906
+   100,000 |        569.954 |        0.0269 |    21,204
+ 1,000,000 |       8218.006 |        0.0286 |   287,001
+
+Finding common students: nested loops vs sorted walk vs set &
+    n = m |  nested cmp |  nested s | sorted cmp |  sorted s |  set & s
+      500 |     186,956 |    0.0053 |        743 |    0.0002 |   0.0001
+    1,000 |     765,408 |    0.0192 |      1,511 |    0.0004 |   0.0001
+    2,000 |   3,041,782 |    0.0850 |      3,016 |    0.0009 |   0.0004
+    4,000 |  12,035,082 |    0.3029 |      5,996 |    0.0018 |   0.0006
+  100,000 | ~10,000,000,000 |  too slow |    149,888 |    0.0643 |   0.0246
+1,000,000 | ~1,000,000,000,000 |  too slow |  1,500,926 |    1.0789 |   0.4371

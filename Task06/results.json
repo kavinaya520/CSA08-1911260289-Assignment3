@@ -1,0 +1,34 @@
+{
+ "rows": [
+  {
+   "trains": 100,
+   "stops": 1000,
+   "examined": 977,
+   "examined_idx": 5.2,
+   "ms": 0.0551,
+   "ms_idx": 0.00283,
+   "ms_flat": 0.0222,
+   "index_kb": 28
+  },
+  {
+   "trains": 1000,
+   "stops": 10000,
+   "examined": 9776,
+   "examined_idx": 50.0,
+   "ms": 0.4118,
+   "ms_idx": 0.02783,
+   "ms_flat": 0.2241,
+   "index_kb": 100
+  },
+  {
+   "trains": 10000,
+   "stops": 100000,
+   "examined": 97753,
+   "examined_idx": 499.7,
+   "ms": 4.1728,
+   "ms_idx": 0.48164,
+   "ms_flat": 2.5408,
+   "index_kb": 846
+  }
+ ]
+}

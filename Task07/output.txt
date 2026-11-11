@@ -1,0 +1,38 @@
+Normalisation examples
+  '+91 98400 12345'    -> 9840012345
+  '9840012345'         -> 9840012345
+  '098400-12345'       -> 9840012345
+  '(0)98400 12345'     -> 9840012345
+  '98400 12345'        -> 9840012345
+  '12345'              -> None
+  '044 2345 6789'      -> None
+  'Dr. Ravi'           -> 'ravi'
+  'ravi   kumar'       -> 'ravi kumar'
+  'RAVI KUMAR'         -> 'ravi kumar'
+  'Meena S.'           -> 'meena s'
+
+Small list of 9 contacts merged by hand (expected) vs program
+  by hand : 0,1,2 are Ravi (shared numbers 9840012345 and 9840054321); every other contact stays alone
+  program : [(0, 1, 2), (3,), (4,), (5,), (6,), (7,), (8,)]
+  (no name)    merged 1 | numbers [] | emails ['lone@x.com'] | name variants []
+  Anitha       merged 1 | numbers ['9000000001'] | emails [] | name variants ['anitha']
+  Anitha       merged 1 | numbers ['9000000002'] | emails [] | name variants ['anitha']
+  Meena S      merged 1 | numbers [] | emails [] | name variants ['meena s']
+  Meena S      merged 1 | numbers ['7700011111'] | emails [] | name variants ['meena s']
+  Ravi Kumar   merged 3 | numbers ['9840012345', '9840054321'] | emails ['ravi@mail.com'] | name variants ['ravi', 'ravi kumar']
+  Test         merged 1 | numbers [] | emails [] | name variants ['test']
+  two different Anitha stay separate (different numbers); Meena S (no number) is not merged with Meena S.
+  the contact with the invalid number '12345' is kept alone (no usable key)
+
+Time for the dictionary design and for comparing every pair
+ contacts | dictionary s |   lookups |  pairwise s | pair comparisons |  records
+    1,000 |       0.0019 |       979 |      0.0351 |          499,500 |      720
+  100,000 |       0.2404 |    97,455 | ~5.9 min (est.) |    4,999,950,000 |   72,483
+  (the pairwise time for 100,000 contacts is the measured time per comparison at 1,000 contacts x 4,999,950,000 comparisons)
+
+Pairwise comparison measured for growing n (shows the n squared growth)
+  n =   500: pairwise 0.0081 s (124,750 comparisons) | dictionary 0.00087 s
+  n =  1000: pairwise 0.0354 s (499,500 comparisons) | dictionary 0.00180 s
+  n =  2000: pairwise 0.1491 s (1,999,000 comparisons) | dictionary 0.00345 s
+  n =  4000: pairwise 0.6195 s (7,998,000 comparisons) | dictionary 0.00737 s
+  estimate for 100,000 contacts at the rate measured for 4,000: about 6.5 minutes of pairwise comparison, against 0.2404 s for the dictionary
